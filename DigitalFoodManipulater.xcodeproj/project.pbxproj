@@ -13,6 +13,9 @@
 		02EB69E22179B30900EB13F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02EB69E12179B30900EB13F9 /* Assets.xcassets */; };
 		02EB69E52179B30900EB13F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02EB69E32179B30900EB13F9 /* LaunchScreen.storyboard */; };
 		02EB6A0B2179E77A00EB13F9 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EB6A0A2179E77A00EB13F9 /* CameraController.swift */; };
+		02EB6A0F2179F33E00EB13F9 /* recipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EB6A0E2179F33E00EB13F9 /* recipeController.swift */; };
+		02EB6A112179F50400EB13F9 /* ReadFoodListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EB6A102179F50400EB13F9 /* ReadFoodListController.swift */; };
+		02EB6A132179F54300EB13F9 /* FoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EB6A122179F54300EB13F9 /* FoodController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		02EB69E42179B30900EB13F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		02EB69E62179B30900EB13F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02EB6A0A2179E77A00EB13F9 /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		02EB6A0E2179F33E00EB13F9 /* recipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recipeController.swift; sourceTree = "<group>"; };
+		02EB6A102179F50400EB13F9 /* ReadFoodListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadFoodListController.swift; sourceTree = "<group>"; };
+		02EB6A122179F54300EB13F9 /* FoodController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +65,9 @@
 				02EB69DA2179B30500EB13F9 /* AppDelegate.swift */,
 				02EB69DC2179B30500EB13F9 /* ViewController.swift */,
 				02EB69DE2179B30600EB13F9 /* Main.storyboard */,
+				02EB6A0E2179F33E00EB13F9 /* recipeController.swift */,
+				02EB6A102179F50400EB13F9 /* ReadFoodListController.swift */,
+				02EB6A122179F54300EB13F9 /* FoodController.swift */,
 				02EB6A0A2179E77A00EB13F9 /* CameraController.swift */,
 				02EB69E12179B30900EB13F9 /* Assets.xcassets */,
 				02EB69E32179B30900EB13F9 /* LaunchScreen.storyboard */,
@@ -138,7 +147,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02EB6A112179F50400EB13F9 /* ReadFoodListController.swift in Sources */,
 				02EB6A0B2179E77A00EB13F9 /* CameraController.swift in Sources */,
+				02EB6A0F2179F33E00EB13F9 /* recipeController.swift in Sources */,
+				02EB6A132179F54300EB13F9 /* FoodController.swift in Sources */,
 				02EB69DD2179B30600EB13F9 /* ViewController.swift in Sources */,
 				02EB69DB2179B30500EB13F9 /* AppDelegate.swift in Sources */,
 			);
