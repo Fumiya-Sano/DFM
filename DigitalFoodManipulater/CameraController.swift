@@ -7,18 +7,39 @@
 //
 
 import UIKit
+import AVFoundation
 
 class CameraController: UIViewController {
-
+    let output = AVCapturePhotoOutput()
     @IBOutlet weak var previewView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        //カメラデバイスの入力を取得
+        guard let device = AVCaptureDevice.default(for: .video),
+            let input = try? AVCaptureDeviceInput(device: device) else {
+                return
+                }
+        //カメラをキャプチャするためのセッションとプレビュー用のレイヤーを取得
+        let session = AVCaptureSession()
+        let previewLayer = AVCaptureVideoPreviewLayer(session: session)
+        
+        //イメージビューと同じ表示になるようにプレビューを設定
+        previewLayer.frame = previewView.bounds
+        previewLayer.videoGravity = .resizeAspectFill
+        previewView.layer.addSublayer(previewLayer)
+        
+        //セッション開始
+        session.addInput(input)
+        session.addOutput(output)
+        session.startRunning()
         // Do any additional setup after loading the view.
     }
     
     @IBAction func onTap(_ sender: Any) {
+        let settions = AVCapturePhotoSettings()//デフォルト設定をしよう
     }
+       
     
     /*
     // MARK: - Navigation
