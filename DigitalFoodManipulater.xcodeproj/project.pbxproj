@@ -16,7 +16,7 @@
 		02EB6A0F2179F33E00EB13F9 /* recipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EB6A0E2179F33E00EB13F9 /* recipeController.swift */; };
 		02EB6A112179F50400EB13F9 /* ReadFoodListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EB6A102179F50400EB13F9 /* ReadFoodListController.swift */; };
 		02EB6A132179F54300EB13F9 /* FoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EB6A122179F54300EB13F9 /* FoodController.swift */; };
-		8C3BB75E217A05BB00372FF8 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3BB75D217A05BB00372FF8 /* Item.swift */; };
+		8C3BB760217A083700372FF8 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3BB75F217A083600372FF8 /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +31,7 @@
 		02EB6A0E2179F33E00EB13F9 /* recipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recipeController.swift; sourceTree = "<group>"; };
 		02EB6A102179F50400EB13F9 /* ReadFoodListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadFoodListController.swift; sourceTree = "<group>"; };
 		02EB6A122179F54300EB13F9 /* FoodController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodController.swift; sourceTree = "<group>"; };
-		8C3BB75D217A05BB00372FF8 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Item.swift; path = ../../../iOSapp/fontList/fontList/Item.swift; sourceTree = "<group>"; };
+		8C3BB75F217A083600372FF8 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +71,7 @@
 				02EB6A102179F50400EB13F9 /* ReadFoodListController.swift */,
 				02EB6A122179F54300EB13F9 /* FoodController.swift */,
 				02EB6A0A2179E77A00EB13F9 /* CameraController.swift */,
-				8C3BB75D217A05BB00372FF8 /* Item.swift */,
+				8C3BB75F217A083600372FF8 /* Item.swift */,
 				02EB69E12179B30900EB13F9 /* Assets.xcassets */,
 				02EB69E32179B30900EB13F9 /* LaunchScreen.storyboard */,
 				02EB69E62179B30900EB13F9 /* Info.plist */,
@@ -154,7 +154,7 @@
 				02EB6A0B2179E77A00EB13F9 /* CameraController.swift in Sources */,
 				02EB6A0F2179F33E00EB13F9 /* recipeController.swift in Sources */,
 				02EB6A132179F54300EB13F9 /* FoodController.swift in Sources */,
-				8C3BB75E217A05BB00372FF8 /* Item.swift in Sources */,
+				8C3BB760217A083700372FF8 /* Item.swift in Sources */,
 				02EB69DD2179B30600EB13F9 /* ViewController.swift in Sources */,
 				02EB69DB2179B30500EB13F9 /* AppDelegate.swift in Sources */,
 			);
