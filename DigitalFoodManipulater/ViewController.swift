@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate{
     @IBOutlet weak var receipt: UIImageView!
-    //カメラロールを表示する
+    //カメラローfルを表示する
     var imagePicker: UIImagePickerController!
     
     
