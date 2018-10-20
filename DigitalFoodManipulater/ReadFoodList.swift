@@ -30,10 +30,8 @@ class ReadFoodList: UITableViewController {
         return nameList.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as? ItemTableViewCell else {
-            return UITableViewCell()
-        }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         //登録した賞味期限を更新しようとしていますが無理でした
         let data = UserDefaults.standard.data(forKey: "array")
@@ -48,6 +46,15 @@ class ReadFoodList: UITableViewController {
                 }
             }
         }
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as? ItemTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        
         
         let itemData = itemList[indexPath.row]
         

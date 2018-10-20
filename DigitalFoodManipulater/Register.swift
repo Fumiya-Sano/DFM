@@ -43,7 +43,7 @@ class Register: UIViewController {
         
         let formatter = DateFormatter()
         nameField.insertText(name)
-        formatter.dateFormat = "yyyyMMdd"
+        formatter.dateFormat = "yyyy年MM月dd日まで"
         dateField.insertText(formatter.string(from: Date()))
         datePicker.date = Date()
         
@@ -54,7 +54,7 @@ class Register: UIViewController {
         
         // 日付のフォーマット
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyyMMdd"
+        formatter.dateFormat = "yyyy年MM月dd日まで"
         dateField.text = "\(formatter.string(from: datePicker.date))"
         _ = formatter.date(from: dateField.text!)
     }
@@ -64,7 +64,7 @@ class Register: UIViewController {
 
         
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyyMMdd"
+        formatter.dateFormat = "yyyy年MM月dd日まで"
         let item = Item(name: nameField.text!,
                         date: formatter.date(from: dateField.text!)!)
         

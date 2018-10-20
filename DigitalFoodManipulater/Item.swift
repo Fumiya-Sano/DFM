@@ -31,13 +31,14 @@ class Item : NSObject, Comparable, NSCoding{
         return date
     }
     func getStringfromDate() -> String{
-        dateFormatter.dateFormat = "yyyyMMdd"
+        dateFormatter.dateFormat = "yyyy年MM月dd日まで"
         return dateFormatter.string(from: date)
         
     }
     
+    
     static func ==(x: Item, y: Item) -> Bool {
-        if x.getStringfromDate() == y.getStringfromDate() {
+        if x.date == y.date {
             return true
         }
         return false
@@ -45,9 +46,9 @@ class Item : NSObject, Comparable, NSCoding{
     
     static func <(x: Item, y: Item) -> Bool {
         
-        if x.getStringfromDate() < y.getStringfromDate() {
+        if x.date < y.date {
             return true
-        } else if x.getStringfromDate() > y.getStringfromDate() {
+        } else if x.date > y.date {
             return false
         }
         return false
