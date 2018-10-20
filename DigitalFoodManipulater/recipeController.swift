@@ -16,7 +16,7 @@ class recipeController: UITableViewController {
     
     var recipeDataArray = [RecipeData]()
     var imageCache = NSCache<AnyObject, UIImage>()
-    var recipename = "おつまみに！タラモ春巻きaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    var recipename = "おつまみに！タラモ春巻き"
     var pageurl = "https://recipe.rakuten.co.jp/recipe/1170006099/"
     var imageurl = "https://image.space.rakuten.co.jp/d/strg/ctrl/3/e02b25d40463829442f1b0cec17231ef015e6962.94.2.3.2.jpg"
     
