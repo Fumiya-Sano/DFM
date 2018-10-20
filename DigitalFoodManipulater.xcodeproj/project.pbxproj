@@ -14,8 +14,9 @@
 		02EB69E52179B30900EB13F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02EB69E32179B30900EB13F9 /* LaunchScreen.storyboard */; };
 		02EB6A0B2179E77A00EB13F9 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EB6A0A2179E77A00EB13F9 /* CameraController.swift */; };
 		02EB6A0F2179F33E00EB13F9 /* recipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EB6A0E2179F33E00EB13F9 /* recipeController.swift */; };
-		02EB6A112179F50400EB13F9 /* ReadFoodListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EB6A102179F50400EB13F9 /* ReadFoodListController.swift */; };
 		02EB6A132179F54300EB13F9 /* FoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EB6A122179F54300EB13F9 /* FoodController.swift */; };
+		02EB6A17217ABA2900EB13F9 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EB6A16217ABA2900EB13F9 /* Register.swift */; };
+		02EB6A1B217AC25D00EB13F9 /* ReadFoodList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EB6A1A217AC25D00EB13F9 /* ReadFoodList.swift */; };
 		8C3BB760217A083700372FF8 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3BB75F217A083600372FF8 /* Item.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,8 +30,9 @@
 		02EB69E62179B30900EB13F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02EB6A0A2179E77A00EB13F9 /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		02EB6A0E2179F33E00EB13F9 /* recipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recipeController.swift; sourceTree = "<group>"; };
-		02EB6A102179F50400EB13F9 /* ReadFoodListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadFoodListController.swift; sourceTree = "<group>"; };
 		02EB6A122179F54300EB13F9 /* FoodController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodController.swift; sourceTree = "<group>"; };
+		02EB6A16217ABA2900EB13F9 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
+		02EB6A1A217AC25D00EB13F9 /* ReadFoodList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadFoodList.swift; sourceTree = "<group>"; };
 		8C3BB75F217A083600372FF8 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,11 +66,12 @@
 		02EB69D92179B30500EB13F9 /* DigitalFoodManipulater */ = {
 			isa = PBXGroup;
 			children = (
+				02EB6A1A217AC25D00EB13F9 /* ReadFoodList.swift */,
+				02EB6A16217ABA2900EB13F9 /* Register.swift */,
 				02EB69DA2179B30500EB13F9 /* AppDelegate.swift */,
 				02EB69DC2179B30500EB13F9 /* ViewController.swift */,
 				02EB69DE2179B30600EB13F9 /* Main.storyboard */,
 				02EB6A0E2179F33E00EB13F9 /* recipeController.swift */,
-				02EB6A102179F50400EB13F9 /* ReadFoodListController.swift */,
 				02EB6A122179F54300EB13F9 /* FoodController.swift */,
 				02EB6A0A2179E77A00EB13F9 /* CameraController.swift */,
 				8C3BB75F217A083600372FF8 /* Item.swift */,
@@ -150,12 +153,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02EB6A112179F50400EB13F9 /* ReadFoodListController.swift in Sources */,
 				02EB6A0B2179E77A00EB13F9 /* CameraController.swift in Sources */,
 				02EB6A0F2179F33E00EB13F9 /* recipeController.swift in Sources */,
 				02EB6A132179F54300EB13F9 /* FoodController.swift in Sources */,
 				8C3BB760217A083700372FF8 /* Item.swift in Sources */,
 				02EB69DD2179B30600EB13F9 /* ViewController.swift in Sources */,
+				02EB6A1B217AC25D00EB13F9 /* ReadFoodList.swift in Sources */,
+				02EB6A17217ABA2900EB13F9 /* Register.swift in Sources */,
 				02EB69DB2179B30500EB13F9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
