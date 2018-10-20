@@ -416,33 +416,49 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="kgN-z6-VMJ" customClass="ItemTableViewCell" customModule="DigitalFoodManipulater" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="selectCell" rowHeight="70" id="kgN-z6-VMJ" customClass="SelectTableViewCell" customModule="DigitalFoodManipulater" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kgN-z6-VMJ" id="dpZ-ny-4vk" customClass="ItemTableViewCell" customModule="DigitalFoodManipulater" customModuleProvider="target">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kgN-z6-VMJ" id="dpZ-ny-4vk" customClass="SelectTableViewCell" customModule="DigitalFoodManipulater" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="食品名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLN-jG-ZgN">
-                                            <rect key="frame" x="16" y="11" width="52" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="期限" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Yw-aL-cLJ">
+                                            <rect key="frame" x="16" y="38" width="105" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="9FR-uh-t9U"/>
+                                                <constraint firstAttribute="width" constant="105" id="RoN-XN-1hM"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="期限" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Yw-aL-cLJ">
-                                            <rect key="frame" x="16" y="38" width="35" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="食品名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLN-jG-ZgN">
+                                            <rect key="frame" x="16" y="11" width="244" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="34o-8T-44O">
+                                            <rect key="frame" x="310" y="19" width="49" height="31"/>
+                                        </switch>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="GLN-jG-ZgN" firstAttribute="leading" secondItem="dpZ-ny-4vk" secondAttribute="leadingMargin" id="1Iq-L5-FJQ"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="34o-8T-44O" secondAttribute="bottom" constant="9" id="8k9-qz-3OD"/>
+                                        <constraint firstItem="GLN-jG-ZgN" firstAttribute="top" secondItem="dpZ-ny-4vk" secondAttribute="topMargin" id="AvS-fe-HTG"/>
+                                        <constraint firstItem="1Yw-aL-cLJ" firstAttribute="top" secondItem="GLN-jG-ZgN" secondAttribute="bottom" constant="6" id="BTV-iQ-ZS8"/>
+                                        <constraint firstItem="34o-8T-44O" firstAttribute="leading" secondItem="GLN-jG-ZgN" secondAttribute="trailing" constant="50" id="P7V-J7-gds"/>
+                                        <constraint firstItem="34o-8T-44O" firstAttribute="trailing" secondItem="dpZ-ny-4vk" secondAttribute="trailingMargin" id="TMm-Dg-B58"/>
+                                        <constraint firstItem="1Yw-aL-cLJ" firstAttribute="bottom" secondItem="dpZ-ny-4vk" secondAttribute="bottomMargin" id="hfJ-IC-wWF"/>
+                                        <constraint firstItem="34o-8T-44O" firstAttribute="centerY" secondItem="dpZ-ny-4vk" secondAttribute="centerY" id="qXS-b7-dTq"/>
+                                        <constraint firstItem="GLN-jG-ZgN" firstAttribute="leading" secondItem="1Yw-aL-cLJ" secondAttribute="leading" id="wvl-MA-hNe"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="itemDateLabel" destination="1Yw-aL-cLJ" id="wB6-Cx-iWT"/>
-                                    <outlet property="itemNameLabeL" destination="GLN-jG-ZgN" id="NmR-Rz-T0z"/>
-                                    <outlet property="itemNameLabel" destination="GLN-jG-ZgN" id="7li-CS-fae"/>
+                                    <outlet property="itemDateLabel" destination="1Yw-aL-cLJ" id="Pdm-5D-Hac"/>
+                                    <outlet property="itemNameLabel" destination="GLN-jG-ZgN" id="ggY-Xj-rzm"/>
+                                    <outlet property="itemSelectSwitch" destination="34o-8T-44O" id="erk-my-Pkr"/>
                                     <segue destination="DuG-xB-O8C" kind="show" id="ttv-WH-7ei"/>
                                 </connections>
                             </tableViewCell>
@@ -509,6 +525,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="BZG-mt-QcP"/>
-        <segue reference="0hg-rO-Anv"/>
+        <segue reference="ttv-WH-7ei"/>
     </inferredMetricsTieBreakers>
 </document>
