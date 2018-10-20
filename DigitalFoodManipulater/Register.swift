@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class Register: UIViewController {
 
@@ -18,6 +19,10 @@ class Register: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        
+
+        
         // Do any additional setup after loading the view.
         datePicker.datePickerMode = UIDatePicker.Mode.date
         datePicker.timeZone = NSTimeZone.local
@@ -58,7 +63,35 @@ class Register: UIViewController {
         formatter.dateFormat = "yyyyMMdd"
         let item = Item(name: nameField.text!,
                         date: formatter.date(from: dateField.text!)!)
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound, .badge]) {
+            (granted, error) in
+            // エラー処理
+        }
         
+        let content = UNMutableNotificationContent()
+        
+        content.title = NSString.localizedUserNotificationString(forKey: item.getName() + "の期限が明日までです！", arguments: nil)
+        content.body = NSString.localizedUserNotificationString(forKey: "美味しいうちに食べましょう！", arguments: nil)
+        content.sound = UNNotificationSound.default
+        
+        
+        let beforeDay = Date(timeInterval: -60*60*24, since: item.getDate())
+        
+        var fireDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: beforeDay)
+        fireDate.hour = 13
+        fireDate.minute = 00
+        print(fireDate)
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: fireDate, repeats: false)
+        let request = UNNotificationRequest(identifier: "my-notification", content: content, trigger: trigger)
+        
+        // 通知を登録
+        center.add(request) { (error : Error?) in
+            if error != nil {
+                // エラー処理
+            }
+        }
     }
 
 
