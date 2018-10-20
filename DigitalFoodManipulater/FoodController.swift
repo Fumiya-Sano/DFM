@@ -9,7 +9,7 @@
 import UIKit
 
 class FoodController: UIViewController {
-
+    
     var fontName_array:[String] = []
     var all_items:[Item] = [Item]()
     
@@ -19,7 +19,7 @@ class FoodController: UIViewController {
         all_items.append(Item(name: "tomato", date: Date(timeIntervalSinceNow: -60*60*24)))
         all_items.append(Item(name: "egg", date: Date(timeIntervalSinceNow: +60*60*24)))
         all_items.sort()
-
+        
         // Do any additional setup after loading the view.
     }
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -45,5 +45,6 @@ class FoodController: UIViewController {
         
         return cell
     }
-
+    
 }
+
