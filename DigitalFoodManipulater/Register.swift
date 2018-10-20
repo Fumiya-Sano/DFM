@@ -13,6 +13,7 @@ class Register: UIViewController {
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var dateField: UITextField!
     
+    var name:String = "a"
     var datePicker: UIDatePicker = UIDatePicker()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,13 +30,15 @@ class Register: UIViewController {
         let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
         toolbar.setItems([spacelItem, doneItem], animated: true)
 
-        nameField.insertText("aaa")
+        
         
         dateField.inputView = datePicker
         dateField.inputAccessoryView = toolbar
         
         let formatter = DateFormatter()
+        nameField.insertText(name)
         formatter.dateFormat = "yyyyMMdd"
+        dateField.insertText(formatter.string(from: Date()))
         datePicker.date = Date()
         
     }
