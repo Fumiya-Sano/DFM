@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class RecipeData {
     var name: String = ""
@@ -28,3 +29,4 @@ class RecipeData {
     var imageInfo: ImageInfo = ImageInfo()
 
 }
+

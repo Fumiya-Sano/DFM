@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import Foundation
+
+
+
 
 class recipeController: UITableViewController {
     
     var recipeDataArray = [RecipeData]()
     var imageCache = NSCache<AnyObject, UIImage>()
-    var recipename = "おつまみに！タラモ春巻き"
+    var recipename = "おつまみに！タラモ春巻きaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
     var pageurl = "https://recipe.rakuten.co.jp/recipe/1170006099/"
     var imageurl = "https://image.space.rakuten.co.jp/d/strg/ctrl/3/e02b25d40463829442f1b0cec17231ef015e6962.94.2.3.2.jpg"
     
@@ -48,40 +52,8 @@ class recipeController: UITableViewController {
         let recipeData = recipeDataArray[indexPath.row]
         cell.recipeTitleLabel.text = recipeData.name
         cell.recipeUrl = recipeData.url
-        
-        guard let recipeImageUrl = recipeData.imageInfo.medium else {
-            return cell
-        }
-        
-        if let cacheImage = imageCache.object(forKey: recipeImageUrl as AnyObject) {
-            cell.recipeImageView.image = cacheImage
-            return cell
-        }
-        
-        guard let url = URL(string: recipeImageUrl) else {
-            return cell
-        }
-        
-        let request = URLRequest(url: url)
-        let session = URLSession.shared
-        let task = session.dataTask(with: request) { (data:Data?, response:URLResponse?, error:Error?) in
-            guard error == nil else {
-                return
-            }
-            guard let data = data else {
-                return
-                
-            }
-            guard let image = UIImage(data: data) else {
-                return
-            }
-            self.imageCache.setObject(image, forKey: recipeImageUrl as AnyObject)
-            DispatchQueue.main.async {
-                cell.recipeImageView.image = image
-            }
-        }
-        
-        task.resume()
+        cell.recipeImageView.image = UIImage(url: URL(string: imageurl))
+        print("image")
         return cell
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -95,4 +67,18 @@ class recipeController: UITableViewController {
         
     }
 
+}
+
+extension UIImage {
+    convenience init?(url: URL?) {
+        guard let url = url else { return nil }
+        
+        do {
+            let data = try Data(contentsOf: url)
+            self.init(data: data)
+        } catch {
+            print("Cannot load image from url: \(url) with error: \(error)")
+            return nil
+        }
+    }
 }
