@@ -10,21 +10,53 @@ import UIKit
 
 class Register: UIViewController {
 
+    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var dateField: UITextField!
+    
+    var datePicker: UIDatePicker = UIDatePicker()
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        datePicker.datePickerMode = UIDatePicker.Mode.date
+        datePicker.timeZone = NSTimeZone.local
+        datePicker.locale = Locale.current
+        dateField.inputView = datePicker
+        
+        // 決定バーの生成
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
+        let spacelItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+        toolbar.setItems([spacelItem, doneItem], animated: true)
+
+        nameField.insertText("aaa")
+        
+        dateField.inputView = datePicker
+        dateField.inputAccessoryView = toolbar
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        datePicker.date = Date()
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func done() {
+        dateField.endEditing(true)
+        
+        // 日付のフォーマット
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        dateField.text = "\(formatter.string(from: datePicker.date))"
+        _ = formatter.date(from: dateField.text!)
     }
-    */
+    
+    @IBAction func onTap(_ sender: UIButton) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        let item = Item(name: nameField.text!,
+                        date: formatter.date(from: dateField.text!)!)
+        
+    }
+
 
 }

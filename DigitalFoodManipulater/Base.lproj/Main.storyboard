@@ -164,13 +164,66 @@
                     <view key="view" contentMode="scaleToFill" id="6DS-dI-lMg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="食品名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S1Z-WJ-Hof">
+                                <rect key="frame" x="16" y="64" width="54" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GSL-47-Pbe">
+                                <rect key="frame" x="16" y="95" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="期限" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4x7-40-P98">
+                                <rect key="frame" x="16" y="135" width="35" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r3a-e1-28G">
+                                <rect key="frame" x="16" y="166" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qov-qP-p9X">
+                                <rect key="frame" x="158" y="242" width="83" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" title="登録！"/>
+                                <connections>
+                                    <action selector="onTap:" destination="DuG-xB-O8C" eventType="touchUpInside" id="Uf2-Oq-BJb"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4x7-40-P98" firstAttribute="top" secondItem="GSL-47-Pbe" secondAttribute="bottom" constant="10" id="1Fz-rb-DW8"/>
+                            <constraint firstItem="S1Z-WJ-Hof" firstAttribute="leading" secondItem="6DS-dI-lMg" secondAttribute="leadingMargin" id="Bud-iL-Oi6"/>
+                            <constraint firstItem="GSL-47-Pbe" firstAttribute="top" secondItem="S1Z-WJ-Hof" secondAttribute="bottom" constant="10" id="EJA-zj-kgn"/>
+                            <constraint firstItem="S1Z-WJ-Hof" firstAttribute="leading" secondItem="GSL-47-Pbe" secondAttribute="leading" id="G5z-KN-tJF"/>
+                            <constraint firstItem="S1Z-WJ-Hof" firstAttribute="top" secondItem="MBw-fd-a2K" secondAttribute="top" id="Q8Y-nz-XeY"/>
+                            <constraint firstItem="MBw-fd-a2K" firstAttribute="trailing" secondItem="S1Z-WJ-Hof" secondAttribute="trailing" constant="305" id="UTH-v5-ioa"/>
+                            <constraint firstItem="GSL-47-Pbe" firstAttribute="leading" secondItem="4x7-40-P98" secondAttribute="leading" id="cyD-0e-tOE"/>
+                            <constraint firstItem="GSL-47-Pbe" firstAttribute="trailing" secondItem="6DS-dI-lMg" secondAttribute="trailingMargin" id="eNj-O6-8bn"/>
+                            <constraint firstItem="r3a-e1-28G" firstAttribute="top" secondItem="4x7-40-P98" secondAttribute="bottom" constant="10" id="grZ-hh-5hf"/>
+                            <constraint firstItem="Qov-qP-p9X" firstAttribute="top" secondItem="r3a-e1-28G" secondAttribute="bottom" constant="46" id="kHC-yf-rgM"/>
+                            <constraint firstItem="Qov-qP-p9X" firstAttribute="leading" secondItem="MBw-fd-a2K" secondAttribute="leading" constant="158" id="lRv-hr-EvP"/>
+                            <constraint firstItem="GSL-47-Pbe" firstAttribute="trailing" secondItem="r3a-e1-28G" secondAttribute="trailing" id="sg4-5m-fcW"/>
+                            <constraint firstItem="4x7-40-P98" firstAttribute="leading" secondItem="r3a-e1-28G" secondAttribute="leading" id="xsa-dS-VZh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="MBw-fd-a2K"/>
                     </view>
+                    <connections>
+                        <outlet property="dateField" destination="r3a-e1-28G" id="2Ao-tf-Zrr"/>
+                        <outlet property="nameField" destination="GSL-47-Pbe" id="dQT-9B-ZuN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TlA-P3-Vwk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3849" y="90"/>
+            <point key="canvasLocation" x="3848.8000000000002" y="89.505247376311857"/>
         </scene>
         <!--Camera Controller-->
         <scene sceneID="p3G-L0-dTx">
@@ -395,6 +448,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="7sk-4r-Bs3"/>
-        <segue reference="0hg-rO-Anv"/>
+        <segue reference="ttv-WH-7ei"/>
     </inferredMetricsTieBreakers>
 </document>
