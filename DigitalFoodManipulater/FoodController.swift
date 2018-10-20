@@ -46,4 +46,13 @@ class FoodController: UITableViewController {
         cell.itemDateLabel.text = itemData.getStringfromDate()
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            all_items.remove(at: indexPath.row)
+            
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
 }
