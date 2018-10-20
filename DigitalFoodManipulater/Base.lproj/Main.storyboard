@@ -217,10 +217,10 @@
             </objects>
             <point key="canvasLocation" x="1913" y="-556"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Recipe Controller-->
         <scene sceneID="voR-iY-b5s">
             <objects>
-                <tableViewController id="TvF-5N-mim" sceneMemberID="viewController">
+                <tableViewController id="TvF-5N-mim" customClass="recipeController" customModule="DigitalFoodManipulater" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QvM-TA-vSd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -260,10 +260,10 @@
             </objects>
             <point key="canvasLocation" x="3673" y="880"/>
         </scene>
-        <!--View Controller-->
+        <!--Recipe Url Controller-->
         <scene sceneID="VNV-ap-HhH">
             <objects>
-                <viewController id="0Yu-uZ-Dox" sceneMemberID="viewController">
+                <viewController id="0Yu-uZ-Dox" customClass="recipeUrlController" customModule="DigitalFoodManipulater" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MG6-Vt-Pje">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
