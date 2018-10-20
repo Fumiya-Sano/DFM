@@ -9,82 +9,87 @@
 import UIKit
 
 class recipeController: UITableViewController {
-
+    
+    var recipeDataArray = [RecipeData]()
+    var imageCache = NSCache<AnyObject, UIImage>()
+    var recipename = "おつまみに！タラモ春巻き"
+    var pageurl = "https://recipe.rakuten.co.jp/recipe/1170006099/"
+    var imageurl = "https://image.space.rakuten.co.jp/d/strg/ctrl/3/e02b25d40463829442f1b0cec17231ef015e6962.94.2.3.2.jpg"
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        var recipe = RecipeData(name: recipename, url: pageurl)
+        recipeDataArray.append(recipe)
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        // self.navigationItem.rightBarButtonItemself.editButtonItem
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return recipeDataArray.count
     }
 
-    /*
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as? RecipeTableViewCell else {
+            return UITableViewCell()
+        }
+        let recipeData = recipeDataArray[indexPath.row]
+        cell.recipeTitleLabel.text = recipeData.name
+        cell.recipeUrl = recipeData.url
+        
+        guard let recipeImageUrl = recipeData.imageInfo.medium else {
+            return cell
+        }
+        
+        if let cacheImage = imageCache.object(forKey: recipeImageUrl as AnyObject) {
+            cell.recipeImageView.image = cacheImage
+            return cell
+        }
+        
+        guard let url = URL(string: recipeImageUrl) else {
+            return cell
+        }
+        
+        let request = URLRequest(url: url)
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { (data:Data?, response:URLResponse?, error:Error?) in
+            guard error == nil else {
+                return
+            }
+            guard let data = data else {
+                return
+                
+            }
+            guard let image = UIImage(data: data) else {
+                return
+            }
+            self.imageCache.setObject(image, forKey: recipeImageUrl as AnyObject)
+            DispatchQueue.main.async {
+                cell.recipeImageView.image = image
+            }
+        }
+        
+        task.resume()
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let cell = sender as? RecipeTableViewCell {
+            if let recipeUrlController = segue.destination as? recipeUrlController {
+                recipeUrlController.recipeUrl = cell.recipeUrl!
+            }
+        }
     }
-    */
 
 }

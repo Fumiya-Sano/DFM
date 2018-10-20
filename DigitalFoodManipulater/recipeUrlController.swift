@@ -10,6 +10,8 @@ import UIKit
 
 class recipeUrlController: UIViewController {
 
+    var recipeUrl: String? = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
