@@ -42,7 +42,7 @@ class recipeController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as? RecipeTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as? RecipeTableViewCell else {
             return UITableViewCell()
         }
         let recipeData = recipeDataArray[indexPath.row]
@@ -90,6 +90,9 @@ class recipeController: UITableViewController {
                 recipeUrlController.recipeUrl = cell.recipeUrl!
             }
         }
+    }
+    @IBAction func returnTop(segue: UIStoryboardSegue){
+        
     }
 
 }
