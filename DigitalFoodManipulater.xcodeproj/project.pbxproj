@@ -18,6 +18,7 @@
 		02EB6A17217ABA2900EB13F9 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EB6A16217ABA2900EB13F9 /* Register.swift */; };
 		02EB6A1B217AC25D00EB13F9 /* ReadFoodList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EB6A1A217AC25D00EB13F9 /* ReadFoodList.swift */; };
 		8C3BB760217A083700372FF8 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3BB75F217A083600372FF8 /* Item.swift */; };
+		8C3BB7AA217AD6E000372FF8 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3BB7A9217AD6E000372FF8 /* ItemTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		02EB6A16217ABA2900EB13F9 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		02EB6A1A217AC25D00EB13F9 /* ReadFoodList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadFoodList.swift; sourceTree = "<group>"; };
 		8C3BB75F217A083600372FF8 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		8C3BB7A9217AD6E000372FF8 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				02EB69DA2179B30500EB13F9 /* AppDelegate.swift */,
 				02EB69DC2179B30500EB13F9 /* ViewController.swift */,
 				02EB69DE2179B30600EB13F9 /* Main.storyboard */,
+				8C3BB7A9217AD6E000372FF8 /* ItemTableViewCell.swift */,
 				02EB6A0E2179F33E00EB13F9 /* recipeController.swift */,
 				02EB6A122179F54300EB13F9 /* FoodController.swift */,
 				02EB6A0A2179E77A00EB13F9 /* CameraController.swift */,
@@ -154,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02EB6A0B2179E77A00EB13F9 /* CameraController.swift in Sources */,
+				8C3BB7AA217AD6E000372FF8 /* ItemTableViewCell.swift in Sources */,
 				02EB6A0F2179F33E00EB13F9 /* recipeController.swift in Sources */,
 				02EB6A132179F54300EB13F9 /* FoodController.swift in Sources */,
 				8C3BB760217A083700372FF8 /* Item.swift in Sources */,
