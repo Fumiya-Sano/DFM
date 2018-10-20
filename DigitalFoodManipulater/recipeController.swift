@@ -14,7 +14,7 @@ import Foundation
 
 class recipeController: UITableViewController {
     
-    var recipeDataArray = [RecipeData]()
+    var recipeDataArray = [RecipeData]() //ここにSyoJasuからもらってきたURLなどを入れる
     var imageCache = NSCache<AnyObject, UIImage>()
     var recipename = "おつまみに！タラモ春巻き"
     var pageurl = "https://recipe.rakuten.co.jp/recipe/1170006099/"

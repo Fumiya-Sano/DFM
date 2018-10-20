@@ -60,58 +60,83 @@ class Register: UIViewController {
     }
     
     @IBAction func onTap(_ sender: UIButton) {
+        
+
+        
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd"
         let item = Item(name: nameField.text!,
                         date: formatter.date(from: dateField.text!)!)
         
-        var all_items: Array<Item> = []
+        let alertController = UIAlertController(
+            title: "登録！",
+            message: item.name + "を登録しますか？",
+            preferredStyle: .alert
+        )
         
-        //取得
-        let data = UserDefaults.standard.data(forKey: "array")
-        if data != nil {
-            all_items = NSKeyedUnarchiver.unarchiveObject(with: data!) as! Array<Item>
-        }
+        alertController.addAction(
+            UIAlertAction(
+                title: "キャンセル",
+                style: .cancel,
+                handler: nil
+            )
+        )
         
-        //UserDefaultsへ
+        alertController.addAction(
+            UIAlertAction(
+                title: "OK",
+                style: .default,
+                handler: { action in
         
-        all_items.append(item)
-        print("append")
-        let archiveData = NSKeyedArchiver.archivedData(withRootObject: all_items)
-        print("arch")
-        UserDefaults.standard.set(archiveData, forKey: "array")
-        print("set")
-        UserDefaults.standard.synchronize()
-        print("sync")
-        let center = UNUserNotificationCenter.current()
-        center.requestAuthorization(options: [.alert, .sound, .badge]) {
-            (granted, error) in
+            var all_items: Array<Item> = []
+        
+            //取得
+            let data = UserDefaults.standard.data(forKey: "array")
+            if data != nil {
+                all_items = NSKeyedUnarchiver.unarchiveObject(with: data!) as! Array<Item>
+            }
+        
+                //UserDefaultsへ
+        
+            all_items.append(item)
+            let archiveData = NSKeyedArchiver.archivedData(withRootObject: all_items)
+            UserDefaults.standard.set(archiveData, forKey: "array")
+            UserDefaults.standard.synchronize()
+        
+        
+            let center = UNUserNotificationCenter.current()
+            center.requestAuthorization(options: [.alert, .sound, .badge]) {
+                (granted, error) in
             // エラー処理
-        }
+            }
         
-        let content = UNMutableNotificationContent()
+            let content = UNMutableNotificationContent()
         
-        content.title = NSString.localizedUserNotificationString(forKey: item.getName() + "の期限が明日までです！", arguments: nil)
-        content.body = NSString.localizedUserNotificationString(forKey: "美味しいうちに食べましょう！", arguments: nil)
-        content.sound = UNNotificationSound.default
+            content.title = NSString.localizedUserNotificationString(forKey: item.getName() + "の期限が明日までです！", arguments: nil)
+            content.body = NSString.localizedUserNotificationString(forKey: "美味しいうちに食べましょう！", arguments: nil)
+            content.sound = UNNotificationSound.default
         
         
-        let beforeDay = Date(timeInterval: -60*60*24, since: item.getDate())
+            let beforeDay = Date(timeInterval: -60*60*24, since: item.getDate())
         
-        var fireDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: beforeDay)
-        fireDate.hour = 13
-        fireDate.minute = 00
-        print(fireDate)
+            var fireDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: beforeDay)
+            fireDate.hour = 13
+            fireDate.minute = 00
+            print(fireDate)
         
-        let trigger = UNCalendarNotificationTrigger(dateMatching: fireDate, repeats: false)
-        let request = UNNotificationRequest(identifier: "my-notification", content: content, trigger: trigger)
+            let trigger = UNCalendarNotificationTrigger(dateMatching: fireDate, repeats: false)
+            let request = UNNotificationRequest(identifier: "my-notification", content: content, trigger: trigger)
         
-        // 通知を登録
-        center.add(request) { (error : Error?) in
-            if error != nil {
-                // エラー処理
+            // 通知を登録
+            center.add(request) { (error : Error?) in
+                if error != nil {
+                    // エラー処理
+                }
             }
         }
+            )
+        )
+        present(alertController, animated: true, completion: nil)
     }
 
 

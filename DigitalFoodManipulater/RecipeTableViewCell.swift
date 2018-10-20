@@ -13,7 +13,7 @@ class RecipeTableViewCell: UITableViewCell {
     @IBOutlet weak var recipeImageView: UIImageView! //レシピ画像
     @IBOutlet weak var recipeTitleLabel: UILabel!    //タイトル
     
-    var recipeUrl: String? //URL
+    var recipeUrl: String? //レシピのURL
     
     override func prepareForReuse() {
         recipeImageView.image = nil
