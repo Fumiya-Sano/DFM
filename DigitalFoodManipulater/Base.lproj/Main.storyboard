@@ -363,6 +363,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lML-2m-UAA"/>
                     </view>
+                    <connections>
+                        <outlet property="myWebView" destination="uBs-yr-DEp" id="vkB-cD-73u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ZJ-ut-ZZX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

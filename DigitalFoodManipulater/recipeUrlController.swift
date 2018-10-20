@@ -7,15 +7,20 @@
 //
 
 import UIKit
+import WebKit
 
 class recipeUrlController: UIViewController {
 
-    var recipeUrl: String? = ""
+    var recipeUrl: String? = "http://www.apple.com/jp/"
     
+    
+    @IBOutlet weak var myWebView: UIWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print("web")
+        let url = NSURL(string: recipeUrl!)
+        
+        let request = NSURLRequest(url: url! as URL)
+        self.myWebView.loadRequest(request as URLRequest)
         // Do any additional setup after loading the view.
     }
     
