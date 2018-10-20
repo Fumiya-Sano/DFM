@@ -2,22 +2,21 @@
 import UIKit
 
 class ReadFoodList: UITableViewController {
-    
-    var fontName_array:[String] = []
-    var aall_items:[Item] = [Item]()
-    
-    
-    var a:Item = Item(name: "milk", date: Date())
-    var b:Item = Item(name: "tomato", date: Date(timeIntervalSinceNow: -60*60*24))
-    var c:Item = Item(name: "milk", date: Date(timeIntervalSinceNow: +60*60*24))
 
-    var all_items = [Item(name: "milk", date: Date()), Item(name: "tomato", date: Date(timeIntervalSinceNow: -60*60*24))]
+
+    var itemList: Array<Item> = []
+    var nameList: Array<String> = ["a","b","c"] //りゅーとくんから受け取る食品名のリスト
     
+    var all_items: Array<Item> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        all_items.sort()
+        for name in nameList {
+            let item = Item(name: name, date: Date())
+            itemList.append(item)
+        }
+        
         
     }
     
@@ -28,7 +27,7 @@ class ReadFoodList: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return all_items.count
+        return nameList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -36,7 +35,21 @@ class ReadFoodList: UITableViewController {
             return UITableViewCell()
         }
         
-        let itemData = all_items[indexPath.row]
+        //登録した賞味期限を更新しようとしていますが無理でした
+        let data = UserDefaults.standard.data(forKey: "array")
+        if data != nil {
+            all_items = NSKeyedUnarchiver.unarchiveObject(with: data!) as! Array<Item>
+        }
+        
+        for i in 0..<nameList.count {
+            for item in all_items {
+                if(nameList[i] == item.getName()) {
+                    itemList[i].date = item.getDate()
+                }
+            }
+        }
+        
+        let itemData = itemList[indexPath.row]
         
         cell.itemNameLabel.text = itemData.getName()
         cell.itemDateLabel.text = itemData.getStringfromDate()
@@ -47,6 +60,7 @@ class ReadFoodList: UITableViewController {
         if let cell = sender as? ItemTableViewCell {
             if let register = segue.destination as? Register {
                 register.name = cell.itemNameLabel.text!
+                
             }
         }
     }

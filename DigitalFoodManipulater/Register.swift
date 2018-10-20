@@ -23,6 +23,7 @@ class Register: UIViewController {
         
 
         
+        
         // Do any additional setup after loading the view.
         datePicker.datePickerMode = UIDatePicker.Mode.date
         datePicker.timeZone = NSTimeZone.local
@@ -63,6 +64,25 @@ class Register: UIViewController {
         formatter.dateFormat = "yyyyMMdd"
         let item = Item(name: nameField.text!,
                         date: formatter.date(from: dateField.text!)!)
+        
+        var all_items: Array<Item> = []
+        
+        //取得
+        let data = UserDefaults.standard.data(forKey: "array")
+        if data != nil {
+            all_items = NSKeyedUnarchiver.unarchiveObject(with: data!) as! Array<Item>
+        }
+        
+        //UserDefaultsへ
+        
+        all_items.append(item)
+        print("append")
+        let archiveData = NSKeyedArchiver.archivedData(withRootObject: all_items)
+        print("arch")
+        UserDefaults.standard.set(archiveData, forKey: "array")
+        print("set")
+        UserDefaults.standard.synchronize()
+        print("sync")
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.alert, .sound, .badge]) {
             (granted, error) in

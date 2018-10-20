@@ -1,8 +1,20 @@
 import Foundation
 
-class Item :Comparable{
+class Item : NSObject, Comparable, NSCoding{
+    
+    
+    required init?(coder aDecoder: NSCoder) {
+        name = (aDecoder.decodeObject(forKey: "name") as? String)!
+        date = (aDecoder.decodeObject(forKey: "date") as? Date)!
+    }
+    
     var name: String
     var date: Date
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey: "name")
+        aCoder.encode(date, forKey: "date")
+    }
     
     let dateFormatter = DateFormatter()
     
