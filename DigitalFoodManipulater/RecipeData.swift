@@ -12,10 +12,12 @@ import UIKit
 class RecipeData {
     var name: String = ""
     var url: String = ""
+    var imageurl: String = ""
     
-    init(name: String, url: String) {
+    init(name: String, url: String, imageurl: String) {
         self.name = name
         self.url = url
+        self.imageurl = imageurl
     }
     
     class ImageInfo: Codable {

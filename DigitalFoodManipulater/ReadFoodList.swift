@@ -5,7 +5,7 @@ class ReadFoodList: UITableViewController {
 
 
     var itemList: Array<Item> = []
-    var nameList: Array<String> = ["牛乳","納豆","キムチ"] //りゅーとくんから受け取る食品名のリスト
+    var nameList: Array<String> = ["トマト","きゅうり"] //りゅーとくんから受け取る食品名のリスト
     
     var all_items: Array<Item> = []
     
