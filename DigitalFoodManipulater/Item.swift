@@ -1,8 +1,20 @@
 import Foundation
 
-class Item :Comparable{
+class Item : NSObject, Comparable, NSCoding{
+    
+    
+    required init?(coder aDecoder: NSCoder) {
+        name = (aDecoder.decodeObject(forKey: "name") as? String)!
+        date = (aDecoder.decodeObject(forKey: "date") as? Date)!
+    }
+    
     var name: String
     var date: Date
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey: "name")
+        aCoder.encode(date, forKey: "date")
+    }
     
     let dateFormatter = DateFormatter()
     
@@ -19,13 +31,14 @@ class Item :Comparable{
         return date
     }
     func getStringfromDate() -> String{
-        dateFormatter.dateFormat = "yyyyMMdd"
+        dateFormatter.dateFormat = "yyyy年MM月dd日まで"
         return dateFormatter.string(from: date)
         
     }
     
+    
     static func ==(x: Item, y: Item) -> Bool {
-        if x.getStringfromDate() == y.getStringfromDate() {
+        if x.date == y.date {
             return true
         }
         return false
@@ -33,9 +46,9 @@ class Item :Comparable{
     
     static func <(x: Item, y: Item) -> Bool {
         
-        if x.getStringfromDate() < y.getStringfromDate() {
+        if x.date < y.date {
             return true
-        } else if x.getStringfromDate() > y.getStringfromDate() {
+        } else if x.date > y.date {
             return false
         }
         return false

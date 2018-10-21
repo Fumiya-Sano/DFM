@@ -6,23 +6,21 @@
 //  Copyright © 2018年 Jenove_ze. All rights reserved.
 //
 import UIKit
+import Foundation
 
 class FoodController: UITableViewController {
     
-    var fontName_array:[String] = []
-    var aall_items:[Item] = [Item]()
-    
-    
-    var a:Item = Item(name: "milk", date: Date())
-    var b:Item = Item(name: "tomato", date: Date(timeIntervalSinceNow: -60*60*24))
-    var c:Item = Item(name: "milk", date: Date(timeIntervalSinceNow: +60*60*24))
-    
-    var all_items = [Item(name: "milk", date: Date()), Item(name: "tomato", date: Date(timeIntervalSinceNow: -60*60*24))]
+    var all_items: Array<Item> = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
+        let data = UserDefaults.standard.data(forKey: "array")
+        if data != nil {
+            all_items = NSKeyedUnarchiver.unarchiveObject(with: data!) as! Array<Item>
+        }
         all_items.sort()
 
     }
@@ -46,4 +44,15 @@ class FoodController: UITableViewController {
         cell.itemDateLabel.text = itemData.getStringfromDate()
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            all_items.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            let archiveData = NSKeyedArchiver.archivedData(withRootObject: all_items)
+            UserDefaults.standard.set(archiveData, forKey: "array")
+            UserDefaults.standard.synchronize()
+        }
+    }
+    
 }
