@@ -420,7 +420,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="34o-8T-44O">
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="34o-8T-44O">
                                             <rect key="frame" x="310" y="19" width="49" height="31"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </switch>
@@ -496,6 +496,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="BZG-mt-QcP"/>
-        <segue reference="0hg-rO-Anv"/>
+        <segue reference="ttv-WH-7ei"/>
     </inferredMetricsTieBreakers>
 </document>

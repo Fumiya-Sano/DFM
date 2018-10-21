@@ -14,7 +14,7 @@ class Register: UIViewController {
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var dateField: UITextField!
     
-    var name:String = "a"
+    var name:String = "食品名を入力してください"
     var datePicker: UIDatePicker = UIDatePicker()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,11 +41,13 @@ class Register: UIViewController {
         dateField.inputView = datePicker
         dateField.inputAccessoryView = toolbar
         
+        var defaultDate = Date(timeInterval: +60*60*24*7, since: Date())
+        
         let formatter = DateFormatter()
         nameField.insertText(name)
         formatter.dateFormat = "yyyy年MM月dd日まで"
-        dateField.insertText(formatter.string(from: Date()))
-        datePicker.date = Date()
+        dateField.insertText(formatter.string(from: defaultDate))
+        datePicker.date = defaultDate
         
     }
     
